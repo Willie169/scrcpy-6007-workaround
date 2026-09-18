@@ -25,18 +25,18 @@ jobs:
 
       - name: Check
         run: |
-          if diff -q tag <(echo ${{ env.VERSION }}); then
+          if diff -q tag <(echo "$VERSION"); then
             echo "No changes in upstream."
             exit 0
           else
-            echo ${{ env.VERSION }} > tag
+            echo "$VERSION" > tag
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "${{ env.VERSION }}"
+            git commit -m "$VERSION"
             git push origin main
-            git tag -a "${{ env.VERSION }}"
-            git push origin "${{ env.VERSION }}"
+            git tag -a "$VERSION"
+            git push origin "$VERSION"
           fi
 
   test-scrcpy-server:
@@ -53,7 +53,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Setup JDK
@@ -79,7 +79,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Setup JDK
@@ -109,7 +109,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Setup JDK
@@ -133,7 +133,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
         # Same as build-linux-x86_64
@@ -182,7 +182,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
         # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
@@ -228,7 +228,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
@@ -266,7 +266,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
@@ -313,7 +313,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
@@ -365,7 +365,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
@@ -410,7 +410,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
@@ -453,7 +453,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
@@ -496,7 +496,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
@@ -539,7 +539,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
@@ -582,7 +582,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
@@ -629,7 +629,7 @@ jobs:
 
       - name: Workaround
         run: |
-          git checkout ${{ env.VERSION }}
+          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(| VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
