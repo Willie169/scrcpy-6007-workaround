@@ -759,10 +759,12 @@ jobs:
           files: release/output/*
 
   delete-artifact:
-    needs: release
+    needs:
+      - release
+      - pre
     runs-on: ubuntu-latest
     if: needs.pre.outputs.changed == '1'
     steps:
       - uses: geekyeggo/delete-artifact@v6
         with:
-          name: github-pages
+          name: "*"
