@@ -61,16 +61,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -94,16 +89,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -132,16 +122,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -164,16 +149,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
         # Same as build-linux-x86_64
       - name: Install dependencies
@@ -221,16 +201,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
         # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
       - name: Install dependencies
@@ -275,16 +250,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Install dependencies
         run: |
@@ -321,16 +291,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Install dependencies
         run: |
@@ -376,16 +341,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Install dependencies
         run: |
@@ -436,16 +396,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Install dependencies
         run:
@@ -489,16 +444,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -540,16 +490,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -591,16 +536,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -642,16 +582,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -693,16 +628,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -748,16 +678,11 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
-          fetch-depth: 0
+          ref: ${{ env.VERSION }}
 
       - name: Workaround
         run: |
-          git checkout "$VERSION"
           sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
-          git commit -m 'workaround'
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
