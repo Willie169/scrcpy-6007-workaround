@@ -11,6 +11,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Tag
         run: echo "VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
@@ -50,6 +51,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -76,6 +78,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -106,6 +109,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -130,6 +134,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -179,6 +184,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -225,6 +231,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -263,6 +270,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -310,6 +318,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -362,6 +371,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -407,6 +417,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -450,6 +461,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -493,6 +505,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -536,6 +549,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -579,6 +593,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
@@ -626,6 +641,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: Genymobile/scrcpy
+          fetch-depth: 0
 
       - name: Workaround
         run: |
