@@ -6,6 +6,10 @@ on:
 jobs:
   prepre:
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
+    outputs:
+      version: ${{ steps.tag.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -14,12 +18,14 @@ jobs:
           fetch-depth: 0
 
       - name: Tag
-        run: echo "VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+        run: echo "VERSION=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_OUTPUT
 
   pre:
     needs:
       - prepre
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -42,10 +48,12 @@ jobs:
 
   test-scrcpy-server:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-latest
     env:
       GRADLE: gradle # use native gradle instead of ./gradlew in scripts
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -69,10 +77,12 @@ jobs:
 
   build-scrcpy-server:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-latest
     env:
       GRADLE: gradle # use native gradle instead of ./gradlew in scripts
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -102,8 +112,11 @@ jobs:
 
   test-build-scrcpy-server-without-gradle:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -127,8 +140,11 @@ jobs:
 
   test-client:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -168,8 +184,11 @@ jobs:
 
   build-linux-x86_64:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-22.04
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Check architecture
         run: |
@@ -224,8 +243,11 @@ jobs:
 
   build-win32:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -263,8 +285,11 @@ jobs:
 
   build-win64:
     needs:
+      - prepre
       - pre
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -302,8 +327,11 @@ jobs:
 
   build-macos-aarch64:
     needs:
+      - prepre
       - pre
     runs-on: macos-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Check architecture
         run: |
@@ -355,8 +383,11 @@ jobs:
 
   build-macos-x86_64:
     needs:
+      - prepre
       - pre
     runs-on: macos-15-intel
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Check architecture
         run: |
@@ -409,9 +440,12 @@ jobs:
 
   package-linux-x86_64:
     needs:
+      - prepre
       - build-scrcpy-server
       - build-linux-x86_64
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -453,9 +487,12 @@ jobs:
 
   package-win32:
     needs:
+      - prepre
       - build-scrcpy-server
       - build-win32
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -497,9 +534,12 @@ jobs:
 
   package-win64:
     needs:
+      - prepre
       - build-scrcpy-server
       - build-win64
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -541,9 +581,12 @@ jobs:
 
   package-macos-aarch64:
     needs:
+      - prepre
       - build-scrcpy-server
       - build-macos-aarch64
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -585,9 +628,12 @@ jobs:
 
   package-macos-x86_64:
     needs:
+      - prepre
       - build-scrcpy-server
       - build-macos-x86_64
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -629,6 +675,7 @@ jobs:
 
   release:
     needs:
+      - prepre
       - build-scrcpy-server
       - package-linux-x86_64
       - package-win32
@@ -636,6 +683,8 @@ jobs:
       - package-macos-aarch64
       - package-macos-x86_64
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.prepre.outputs.version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
