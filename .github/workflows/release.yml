@@ -65,7 +65,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -93,7 +93,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -126,7 +126,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Setup JDK
         uses: actions/setup-java@v5
@@ -153,7 +153,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
         # Same as build-linux-x86_64
       - name: Install dependencies
@@ -205,7 +205,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
         # https://wiki.libsdl.org/SDL3/README-linux#build-dependencies
       - name: Install dependencies
@@ -254,7 +254,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
         run: |
@@ -295,7 +295,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
         run: |
@@ -345,7 +345,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
         run: |
@@ -400,7 +400,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
         run:
@@ -448,7 +448,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -494,7 +494,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -540,7 +540,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -586,7 +586,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -632,7 +632,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
@@ -682,7 +682,7 @@ jobs:
 
       - name: Workaround
         run: |
-          sed -Ei 's#^([ \t]*)(\|VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
+          sed -Ei 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Download scrcpy-server
         uses: actions/download-artifact@v8
