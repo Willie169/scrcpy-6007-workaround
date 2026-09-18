@@ -25,19 +25,25 @@ jobs:
   pre:
     needs:
       - prepre
+      - pre
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
       - name: Check
+        id: check
         run: |
           if diff -q tag <(echo "$VERSION"); then
             echo "No changes in upstream."
+            echo "changed=0" >> "$GITHUB_OUTPUT"
             exit 0
           else
+            echo "changed=1" >> "$GITHUB_OUTPUT"
             echo "$VERSION" > tag
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -53,6 +59,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       GRADLE: gradle # use native gradle instead of ./gradlew in scripts
       VERSION: ${{ needs.prepre.outputs.version }}
@@ -81,6 +88,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       GRADLE: gradle # use native gradle instead of ./gradlew in scripts
       VERSION: ${{ needs.prepre.outputs.version }}
@@ -115,6 +123,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -142,6 +151,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -185,6 +195,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-22.04
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -243,6 +254,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -284,6 +296,7 @@ jobs:
       - prepre
       - pre
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -325,6 +338,7 @@ jobs:
       - prepre
       - pre
     runs-on: macos-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -380,6 +394,7 @@ jobs:
       - prepre
       - pre
     runs-on: macos-15-intel
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -434,9 +449,11 @@ jobs:
   package-linux-x86_64:
     needs:
       - prepre
+      - pre
       - build-scrcpy-server
       - build-linux-x86_64
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -480,9 +497,11 @@ jobs:
   package-win32:
     needs:
       - prepre
+      - pre
       - build-scrcpy-server
       - build-win32
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -526,9 +545,11 @@ jobs:
   package-win64:
     needs:
       - prepre
+      - pre
       - build-scrcpy-server
       - build-win64
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -572,9 +593,11 @@ jobs:
   package-macos-aarch64:
     needs:
       - prepre
+      - pre
       - build-scrcpy-server
       - build-macos-aarch64
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -618,9 +641,11 @@ jobs:
   package-macos-x86_64:
     needs:
       - prepre
+      - pre
       - build-scrcpy-server
       - build-macos-x86_64
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -664,6 +689,7 @@ jobs:
   release:
     needs:
       - prepre
+      - pre
       - build-scrcpy-server
       - package-linux-x86_64
       - package-win32
@@ -671,6 +697,7 @@ jobs:
       - package-macos-aarch64
       - package-macos-x86_64
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
     steps:
@@ -734,6 +761,7 @@ jobs:
   delete-artifact:
     needs: release
     runs-on: ubuntu-latest
+    if: needs.pre.outputs.changed == '1'
     steps:
       - uses: geekyeggo/delete-artifact@v6
         with:
