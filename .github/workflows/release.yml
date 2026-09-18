@@ -25,7 +25,6 @@ jobs:
   pre:
     needs:
       - prepre
-      - pre
     runs-on: ubuntu-latest
     env:
       VERSION: ${{ needs.prepre.outputs.version }}
