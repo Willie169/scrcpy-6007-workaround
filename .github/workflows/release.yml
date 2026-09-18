@@ -16,6 +16,7 @@ jobs:
           fetch-depth: 0
 
       - name: Tag
+        id: tag
         run: |
           VERSION="$(git describe --tags "$(git rev-list --tags --max-count=1)")"
           echo "Upstream version: $VERSION"
