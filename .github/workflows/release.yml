@@ -49,9 +49,7 @@ jobs:
             git add -A
             git commit -m "$VERSION"
             git push origin main
-            if git tag -d "$VERSION"; then
-              git push origin --delete "$VERSION"
-            fi
+            git push origin --delete "$VERSION" || true
             git tag -a "$VERSION" -m "$VERSION"
             git push origin "$VERSION"
           fi
