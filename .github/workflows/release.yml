@@ -66,8 +66,8 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.pre.outputs.changed == '1'
     env:
-      GRADLE: gradle # use native gradle instead of ./gradlew in scripts
       VERSION: ${{ needs.prepre.outputs.version }}
+      GRADLE: gradle  # use native gradle instead of ./gradlew in scripts
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -82,8 +82,8 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v5
         with:
-          distribution: "zulu"
-          java-version: "17"
+          distribution: 'zulu'
+          java-version: '17'
 
       - name: Test scrcpy-server
         run: release/test_server.sh
@@ -95,8 +95,8 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.pre.outputs.changed == '1'
     env:
-      GRADLE: gradle # use native gradle instead of ./gradlew in scripts
       VERSION: ${{ needs.prepre.outputs.version }}
+      GRADLE: gradle  # use native gradle instead of ./gradlew in scripts
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -111,8 +111,8 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v5
         with:
-          distribution: "zulu"
-          java-version: "17"
+          distribution: 'zulu'
+          java-version: '17'
 
       - name: Build
         run: release/build_server.sh
@@ -145,8 +145,8 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v5
         with:
-          distribution: "zulu"
-          java-version: "17"
+          distribution: 'zulu'
+          java-version: '17'
 
       - name: Build without gradle
         run: server/build_without_gradle.sh
@@ -180,7 +180,7 @@ jobs:
              libasound2-dev libpulse-dev \
              libaudio-dev libfribidi-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
              libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
-             libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
+             libxkbcommon-dev libdrm-dev libva-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
              libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev \
              libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
 
@@ -233,7 +233,7 @@ jobs:
              libasound2-dev libpulse-dev \
              libaudio-dev libfribidi-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
              libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
-             libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
+             libxkbcommon-dev libdrm-dev libva-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
              libegl1-mesa-dev libdbus-1-dev libibus-1.0-dev libudev-dev libthai-dev \
              libpipewire-0.3-dev libwayland-dev libdecor-0-dev liburing-dev
 
@@ -243,10 +243,10 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Tar
         run: |
-          cd release/work/build-linux-x86_64
-          mkdir dist-tar
-          cd dist-tar
-          tar -C .. -cvf dist.tar.gz dist/
+            cd release/work/build-linux-x86_64
+            mkdir dist-tar
+            cd dist-tar
+            tar -C .. -cvf dist.tar.gz dist/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
@@ -285,10 +285,10 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Tar
         run: |
-          cd release/work/build-win32
-          mkdir dist-tar
-          cd dist-tar
-          tar -C .. -cvf dist.tar.gz dist/
+            cd release/work/build-win32
+            mkdir dist-tar
+            cd dist-tar
+            tar -C .. -cvf dist.tar.gz dist/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
@@ -327,10 +327,10 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Tar
         run: |
-          cd release/work/build-win64
-          mkdir dist-tar
-          cd dist-tar
-          tar -C .. -cvf dist.tar.gz dist/
+            cd release/work/build-win64
+            mkdir dist-tar
+            cd dist-tar
+            tar -C .. -cvf dist.tar.gz dist/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
@@ -368,7 +368,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          brew install meson nasm libiconv zlib automake autoconf libtool
+            brew install meson nasm libiconv zlib automake autoconf libtool
 
       - name: Build
         env:
@@ -383,10 +383,10 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Tar
         run: |
-          cd release/work/build-macos-aarch64
-          mkdir dist-tar
-          cd dist-tar
-          tar -C .. -cvf dist.tar.gz dist/
+            cd release/work/build-macos-aarch64
+            mkdir dist-tar
+            cd dist-tar
+            tar -C .. -cvf dist.tar.gz dist/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
@@ -423,9 +423,8 @@ jobs:
           sed -E -i '' 's#^([[:space:]]*)(\|[[:space:]]*VIRTUAL_DISPLAY_FLAG_ALWAYS_UNLOCKED)#\1// \2#' server/src/main/java/com/genymobile/scrcpy/video/NewDisplayCapture.java
 
       - name: Install dependencies
-        run:
-          brew install meson nasm libiconv zlib automake
-          # autoconf and libtool are already installed on macos-13
+        run: brew install meson nasm libiconv zlib automake
+             # autoconf and libtool are already installed on macos-13
 
       - name: Build
         env:
@@ -440,10 +439,10 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Tar
         run: |
-          cd release/work/build-macos-x86_64
-          mkdir dist-tar
-          cd dist-tar
-          tar -C .. -cvf dist.tar.gz dist/
+            cd release/work/build-macos-x86_64
+            mkdir dist-tar
+            cd dist-tar
+            tar -C .. -cvf dist.tar.gz dist/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
@@ -487,8 +486,8 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Detar
         run: |
-          cd release/work/build-linux-x86_64
-          tar xf dist-tar/dist.tar.gz
+            cd release/work/build-linux-x86_64
+            tar xf dist-tar/dist.tar.gz
 
       - name: Package
         run: release/package_client.sh linux-x86_64 tar.gz
@@ -535,8 +534,8 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Detar
         run: |
-          cd release/work/build-win32
-          tar xf dist-tar/dist.tar.gz
+            cd release/work/build-win32
+            tar xf dist-tar/dist.tar.gz
 
       - name: Package
         run: release/package_client.sh win32 zip
@@ -583,8 +582,8 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Detar
         run: |
-          cd release/work/build-win64
-          tar xf dist-tar/dist.tar.gz
+            cd release/work/build-win64
+            tar xf dist-tar/dist.tar.gz
 
       - name: Package
         run: release/package_client.sh win64 zip
@@ -631,8 +630,8 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Detar
         run: |
-          cd release/work/build-macos-aarch64
-          tar xf dist-tar/dist.tar.gz
+            cd release/work/build-macos-aarch64
+            tar xf dist-tar/dist.tar.gz
 
       - name: Package
         run: release/package_client.sh macos-aarch64 tar.gz
@@ -679,8 +678,8 @@ jobs:
       # upload-artifact does not preserve permissions
       - name: Detar
         run: |
-          cd release/work/build-macos-x86_64
-          tar xf dist-tar/dist.tar.gz
+            cd release/work/build-macos-x86_64
+            tar xf dist-tar/dist.tar.gz
 
       - name: Package
         run: release/package_client.sh macos-x86_64 tar.gz
